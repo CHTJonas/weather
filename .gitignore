@@ -1,6 +1,1 @@
-# Ignore local Procodile overrides
-Procfile.local
-
-# Ignore all log files and pid files
-/log
-/pids
+target/
