@@ -1,6 +1,7 @@
 package com.github.chtjonas.weather
 
 import com.twitter.app.App
+import com.twitter.finagle.Http
 import com.twitter.util.Await
 
 object Application extends App {
@@ -8,7 +9,7 @@ object Application extends App {
   onExit { println("Shutting down...") }
 
   def main() = {
-    val server = HttpService.server
+    val server = Http.serve(":8080", HttpService.service)
     closeOnExit(server)
     Await.ready(server)
   }
