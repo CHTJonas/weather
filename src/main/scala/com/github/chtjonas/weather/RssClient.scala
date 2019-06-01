@@ -12,5 +12,7 @@ object RssClient {
     .newService(domain + ":443")
   private val request = http.Request(http.Method.Get, url)
   request.host = domain
-  val response: Future[http.Response] = client(request)
+
+  def response: Future[http.Response] =
+    client(request)
 }
